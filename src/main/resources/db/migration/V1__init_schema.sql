@@ -13,11 +13,13 @@
  * Security Domain entities
  */
 -- User table
-CREATE TABLE IF NO EXISTS `user` (
+CREATE TABLE IF NOT EXISTS `user` (
 	`id`       		BIGINT(20) NOT NULL AUTO_INCREMENT,
 	`email` 		VARCHAR(100) NOT NULL,
 	`password` 		VARCHAR(100) NOT NULL,
 	`enabled`  		BOOLEAN NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `ukey_email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Role table
